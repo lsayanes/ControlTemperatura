@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_media_previous" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Navegación entre fichas -->
+        <LinearLayout
+            android:id="@+id/layoutNavFicha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp">
+
+            <ImageButton
+                android:id="@+id/btnFichaAnterior"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_media_rew"
+                android:contentDescription="@string/ficha_anterior" />
+
+            <TextView
+                android:id="@+id/textFichaNavLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceTitleSmall" />
+
+            <ImageButton
+                android:id="@+id/btnFichaSiguiente"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_media_ff"
+                android:contentDescription="@string/ficha_siguiente" />
+
+        </LinearLayout>
+
+        <!-- Leyenda de colores -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="8dp">
+
+            <View android:layout_width="12dp" android:layout_height="12dp"
+                android:layout_gravity="center_vertical"
+                android:background="#4CAF50" android:layout_marginEnd="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/leyenda_verde" android:textAppearance="?attr/textAppearanceLabelSmall"
+                android:layout_marginEnd="12dp"/>
+
+            <View android:layout_width="12dp" android:layout_height="12dp"
+                android:layout_gravity="center_vertical"
+                android:background="#FF9800" android:layout_marginEnd="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/leyenda_naranja" android:textAppearance="?attr/textAppearanceLabelSmall"
+                android:layout_marginEnd="12dp"/>
+
+            <View android:layout_width="12dp" android:layout_height="12dp"
+                android:layout_gravity="center_vertical"
+                android:background="#F44336" android:layout_marginEnd="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/leyenda_rojo" android:textAppearance="?attr/textAppearanceLabelSmall"/>
+
+        </LinearLayout>
+
+        <!-- Gráfico desplazable horizontalmente -->
+        <HorizontalScrollView
+            android:id="@+id/scrollChart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <com.controltemperatura.TempChartView
+                android:id="@+id/chartView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textSinDatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/ficha_sin_registros"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- FAB compartir (Fase 6) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCompartir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/compartir"
+        app:srcCompat="@android:drawable/ic_menu_share" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

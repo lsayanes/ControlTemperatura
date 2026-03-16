@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Control Temperatura</string>
+
+    <!-- Pantalla principal -->
+    <string name="nuevo_paciente">Nuevo paciente</string>
+    <string name="sin_pacientes">No hay pacientes registrados.\nToca + para agregar uno.</string>
+    <string name="paciente">Paciente</string>
+    <string name="ver_detalle">Ver detalle</string>
+
+    <!-- Formulario paciente -->
+    <string name="editar_paciente">Editar paciente</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="edad">Edad</string>
+    <string name="sexo">Sexo</string>
+    <string name="masculino">Masculino</string>
+    <string name="femenino">Femenino</string>
+    <string name="sin_especificar">Sin especificar</string>
+    <string name="descripcion">Descripción</string>
+    <string name="campo_obligatorio">* Obligatorio</string>
+    <string name="alarma_recordatorio">Recordatorio de toma</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="eliminar_paciente">Eliminar paciente</string>
+    <string name="confirmar_eliminar_paciente">¿Eliminar este paciente y todos sus registros? Esta acción no se puede deshacer.</string>
+
+    <!-- Mensajes -->
+    <string name="paciente_guardado">Paciente guardado</string>
+    <string name="paciente_eliminado">Paciente eliminado</string>
+    <string name="error_nombre_obligatorio">El nombre es obligatorio</string>
+    <string name="error_cargar_paciente">No se pudo cargar el paciente</string>
+
+    <!-- Fichas y registros -->
+    <string name="temperatura">Temperatura (°C)</string>
+    <string name="fecha_hora">Fecha y hora</string>
+    <string name="nueva_ficha">Nueva ficha</string>
+    <string name="cerrar_ficha">Cerrar ficha actual</string>
+    <string name="agregar_registro">Agregar registro</string>
+    <string name="ver_curva">Ver curva</string>
+    <string name="ficha">Ficha</string>
+    <string name="abierta">Abierta</string>
+    <string name="cerrada">Cerrada</string>
+    <string name="sin_alarma">Sin alarma</string>
+
+    <!-- Detalle paciente -->
+    <string name="sin_registros">No hay registros.\nToca + para agregar el primero.</string>
+    <string name="proximamente">Próximamente</string>
+    <string name="confirmar_nueva_ficha">Se creará una nueva ficha para registrar un nuevo episodio.</string>
+    <string name="confirmar_cerrar_ficha">¿Cerrar la Ficha %d? No se podrán agregar más registros a ella.</string>
+    <string name="ficha_creada">Ficha %d creada</string>
+    <string name="ficha_cerrada">Ficha cerrada</string>
+    <string name="no_hay_ficha_activa">No hay ninguna ficha activa</string>
+    <string name="crear">Crear</string>
+
+    <!-- Agregar registro -->
+    <string name="fecha">Fecha</string>
+    <string name="hora">Hora</string>
+    <string name="ficha_actual_label">Ficha %d (actual)</string>
+    <string name="nueva_ficha_label">Nueva ficha %d</string>
+    <string name="registro_guardado">Registro guardado</string>
+    <string name="error_temp_obligatoria">La temperatura es obligatoria</string>
+    <string name="error_temp_invalida">Temperatura inválida</string>
+
+    <!-- Curva / Gráfico -->
+    <string name="leyenda_verde">≤ 37.0°</string>
+    <string name="leyenda_naranja">37.1–37.4°</string>
+    <string name="leyenda_rojo">≥ 37.5°</string>
+    <string name="ficha_anterior">Ficha anterior</string>
+    <string name="ficha_siguiente">Ficha siguiente</string>
+    <string name="ficha_sin_registros">Esta ficha no tiene registros</string>
+    <string name="sin_fichas">Sin fichas</string>
+    <string name="nav_ficha_label">Ficha %d  ·  %s  ·  %s</string>
+    <string name="compartir_texto">Curva de temperatura — %s — Ficha %d</string>
+    <string name="error_compartir">No se pudo generar la imagen</string>
+
+    <!-- Notificaciones -->
+    <string name="notif_canal_nombre">Recordatorio de temperatura</string>
+    <string name="notif_canal_desc">Avisa cuando es hora de tomar la temperatura</string>
+    <string name="notif_titulo">Recordatorio de temperatura</string>
+    <string name="notif_texto">Es hora de tomar la temperatura de %s</string>
+    <string name="compartir">Compartir</string>
+</resources>

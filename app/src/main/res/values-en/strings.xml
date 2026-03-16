@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Temperature Control</string>
+
+    <!-- Main screen -->
+    <string name="nuevo_paciente">New patient</string>
+    <string name="sin_pacientes">No patients registered.\nTap + to add one.</string>
+    <string name="paciente">Patient</string>
+    <string name="ver_detalle">View detail</string>
+
+    <!-- Patient form -->
+    <string name="editar_paciente">Edit patient</string>
+    <string name="nombre">First name</string>
+    <string name="apellido">Last name</string>
+    <string name="edad">Age</string>
+    <string name="sexo">Sex</string>
+    <string name="masculino">Male</string>
+    <string name="femenino">Female</string>
+    <string name="sin_especificar">Not specified</string>
+    <string name="descripcion">Notes</string>
+    <string name="campo_obligatorio">* Required</string>
+    <string name="alarma_recordatorio">Temperature reminder</string>
+    <string name="guardar">Save</string>
+    <string name="cancelar">Cancel</string>
+    <string name="eliminar_paciente">Delete patient</string>
+    <string name="confirmar_eliminar_paciente">Delete this patient and all their records? This action cannot be undone.</string>
+
+    <!-- Messages -->
+    <string name="paciente_guardado">Patient saved</string>
+    <string name="paciente_eliminado">Patient deleted</string>
+    <string name="error_nombre_obligatorio">First name is required</string>
+    <string name="error_cargar_paciente">Could not load patient</string>
+
+    <!-- Case files and records -->
+    <string name="temperatura">Temperature (°C)</string>
+    <string name="fecha_hora">Date and time</string>
+    <string name="nueva_ficha">New case file</string>
+    <string name="cerrar_ficha">Close current case file</string>
+    <string name="agregar_registro">Add record</string>
+    <string name="ver_curva">View chart</string>
+    <string name="ficha">Case file</string>
+    <string name="abierta">Open</string>
+    <string name="cerrada">Closed</string>
+    <string name="sin_alarma">No reminder</string>
+
+    <!-- Patient detail -->
+    <string name="sin_registros">No records yet.\nTap + to add the first one.</string>
+    <string name="proximamente">Coming soon</string>
+    <string name="confirmar_nueva_ficha">A new case file will be created to record a new episode.</string>
+    <string name="confirmar_cerrar_ficha">Close Case File %d? No more records can be added to it.</string>
+    <string name="ficha_creada">Case file %d created</string>
+    <string name="ficha_cerrada">Case file closed</string>
+    <string name="no_hay_ficha_activa">No active case file</string>
+    <string name="crear">Create</string>
+
+    <!-- Add record -->
+    <string name="fecha">Date</string>
+    <string name="hora">Time</string>
+    <string name="ficha_actual_label">Case file %d (current)</string>
+    <string name="nueva_ficha_label">New case file %d</string>
+    <string name="registro_guardado">Record saved</string>
+    <string name="error_temp_obligatoria">Temperature is required</string>
+    <string name="error_temp_invalida">Invalid temperature</string>
+
+    <!-- Chart -->
+    <string name="leyenda_verde">≤ 37.0°</string>
+    <string name="leyenda_naranja">37.1–37.4°</string>
+    <string name="leyenda_rojo">≥ 37.5°</string>
+    <string name="ficha_anterior">Previous case file</string>
+    <string name="ficha_siguiente">Next case file</string>
+    <string name="ficha_sin_registros">This case file has no records</string>
+    <string name="sin_fichas">No case files</string>
+    <string name="nav_ficha_label">Case file %d  ·  %s  ·  %s</string>
+    <string name="compartir_texto">Temperature chart — %s — Case file %d</string>
+    <string name="error_compartir">Could not generate image</string>
+    <string name="compartir">Share</string>
+
+    <!-- Notifications -->
+    <string name="notif_canal_nombre">Temperature reminder</string>
+    <string name="notif_canal_desc">Alerts when it is time to take the temperature</string>
+    <string name="notif_titulo">Temperature reminder</string>
+    <string name="notif_texto">Time to take %s\'s temperature</string>
+</resources>
