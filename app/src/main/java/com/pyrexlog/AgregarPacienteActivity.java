@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,8 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.controltemperatura.model.Paciente;
-import com.controltemperatura.storage.CsvStorage;
+import com.pyrexlog.model.Paciente;
+import com.pyrexlog.storage.CsvStorage;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;

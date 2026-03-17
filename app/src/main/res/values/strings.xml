@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Control Temperatura</string>
+    <string name="app_name">PyrexLog</string>
 
     <!-- Pantalla principal -->
     <string name="nuevo_paciente">Nuevo paciente</string>

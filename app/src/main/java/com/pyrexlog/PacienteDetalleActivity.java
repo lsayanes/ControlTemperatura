@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.controltemperatura.model.Ficha;
-import com.controltemperatura.model.Paciente;
-import com.controltemperatura.storage.CsvStorage;
+import com.pyrexlog.model.Ficha;
+import com.pyrexlog.model.Paciente;
+import com.pyrexlog.storage.CsvStorage;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

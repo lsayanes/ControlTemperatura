@@ -15,6 +15,11 @@
 .cxx
 local.properties
 
+# Builds de release (AAB/APK) — no versionar
+app/release/
+*.aab
+*.apk
+
 # Firma — nunca subir a git
 keystore.properties
 *.jks

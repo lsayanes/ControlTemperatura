@@ -1,11 +1,11 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.controltemperatura.model.Paciente;
-import com.controltemperatura.storage.CsvStorage;
+import com.pyrexlog.model.Paciente;
+import com.pyrexlog.storage.CsvStorage;
 
 import java.util.List;
 

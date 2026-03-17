@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,7 +10,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.controltemperatura.model.Registro;
+import com.pyrexlog.model.Registro;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

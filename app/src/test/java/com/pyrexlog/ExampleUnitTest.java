@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import org.junit.Test;
 

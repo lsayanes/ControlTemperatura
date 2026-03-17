@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.controltemperatura.model.Ficha;
-import com.controltemperatura.model.Registro;
-import com.controltemperatura.storage.CsvStorage;
+import com.pyrexlog.model.Ficha;
+import com.pyrexlog.model.Registro;
+import com.pyrexlog.storage.CsvStorage;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;

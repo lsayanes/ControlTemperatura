@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.controltemperatura.model.Ficha;
-import com.controltemperatura.model.Registro;
+import com.pyrexlog.model.Ficha;
+import com.pyrexlog.model.Registro;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

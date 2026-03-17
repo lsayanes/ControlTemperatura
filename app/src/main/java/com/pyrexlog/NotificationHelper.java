@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;

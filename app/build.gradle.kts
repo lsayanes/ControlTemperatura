@@ -11,11 +11,11 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "com.controltemperatura"
+    namespace = "com.pyrexlog"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.controltemperatura"
+        applicationId = "com.pyrexlog"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

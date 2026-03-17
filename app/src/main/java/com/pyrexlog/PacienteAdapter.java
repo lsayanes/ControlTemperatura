@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.controltemperatura.model.Paciente;
+import com.pyrexlog.model.Paciente;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

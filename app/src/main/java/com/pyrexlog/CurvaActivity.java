@@ -1,4 +1,4 @@
-package com.controltemperatura;
+package com.pyrexlog;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,9 +15,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
-import com.controltemperatura.model.Ficha;
-import com.controltemperatura.model.Paciente;
-import com.controltemperatura.storage.CsvStorage;
+import com.pyrexlog.model.Ficha;
+import com.pyrexlog.model.Paciente;
+import com.pyrexlog.storage.CsvStorage;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.io.File;
@@ -33,7 +33,7 @@ public class CurvaActivity extends AppCompatActivity {
     public static final String EXTRA_PACIENTE_ID  = "paciente_id";
     public static final String EXTRA_FICHA_NUMERO = "ficha_numero"; // -1 = última
 
-    private static final String FILE_PROVIDER_AUTH = "com.controltemperatura.fileprovider";
+    private static final String FILE_PROVIDER_AUTH = "com.pyrexlog.fileprovider";
 
     private static final SimpleDateFormat SDF_FICHA =
             new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());

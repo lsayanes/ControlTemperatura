@@ -1,10 +1,10 @@
-package com.controltemperatura.storage;
+package com.pyrexlog.storage;
 
 import android.content.Context;
 
-import com.controltemperatura.model.Ficha;
-import com.controltemperatura.model.Paciente;
-import com.controltemperatura.model.Registro;
+import com.pyrexlog.model.Ficha;
+import com.pyrexlog.model.Paciente;
+import com.pyrexlog.model.Registro;
 
 import java.io.BufferedReader;
 import java.io.File;

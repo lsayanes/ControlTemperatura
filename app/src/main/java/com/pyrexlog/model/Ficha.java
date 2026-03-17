@@ -1,4 +1,4 @@
-package com.controltemperatura.model;
+package com.pyrexlog.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.controltemperatura.model;
+package com.pyrexlog.model;
 
 public class Paciente {
     private int id;

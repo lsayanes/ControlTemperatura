@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ControlTemperatura"
+        android:theme="@style/Theme.PyrexLog"
         tools:targetApi="31">
 
         <activity
@@ -51,7 +51,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.controltemperatura.fileprovider"
+            android:authorities="com.pyrexlog.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

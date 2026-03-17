@@ -1,4 +1,4 @@
-package com.controltemperatura.model;
+package com.pyrexlog.model;
 
 public class Registro {
     private long fechaHora;    // milisegundos epoch
