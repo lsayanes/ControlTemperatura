@@ -253,6 +253,39 @@ public class CsvStorage {
         guardarFichas(pacienteId, fichas);
     }
 
+    /**
+     * Reemplaza un registro existente (identificado por nroFicha + fechaHoraOriginal)
+     * con los datos del registro nuevo.
+     */
+    public void editarRegistro(int pacienteId, int nroFicha, long fechaHoraOriginal, Registro nuevo) {
+        List<Ficha> fichas = cargarFichas(pacienteId);
+        for (Ficha f : fichas) {
+            if (f.getNumero() == nroFicha) {
+                List<Registro> registros = f.getRegistros();
+                for (int i = 0; i < registros.size(); i++) {
+                    if (registros.get(i).getFechaHora() == fechaHoraOriginal) {
+                        registros.set(i, nuevo);
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        guardarFichas(pacienteId, fichas);
+    }
+
+    /** Elimina el registro identificado por nroFicha + fechaHoraOriginal. */
+    public void eliminarRegistro(int pacienteId, int nroFicha, long fechaHoraOriginal) {
+        List<Ficha> fichas = cargarFichas(pacienteId);
+        for (Ficha f : fichas) {
+            if (f.getNumero() == nroFicha) {
+                f.getRegistros().removeIf(r -> r.getFechaHora() == fechaHoraOriginal);
+                break;
+            }
+        }
+        guardarFichas(pacienteId, fichas);
+    }
+
     /** Retorna la ficha abierta más reciente, o null si todas están cerradas. */
     public Ficha getFichaActiva(int pacienteId) {
         List<Ficha> fichas = cargarFichas(pacienteId);

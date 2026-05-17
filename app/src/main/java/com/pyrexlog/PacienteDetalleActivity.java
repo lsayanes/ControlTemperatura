@@ -52,6 +52,7 @@ public class PacienteDetalleActivity extends AppCompatActivity {
 
         textSinRegistros = findViewById(R.id.textSinRegistros);
         adapter = new FichaAdapter();
+        adapter.setOnRegistroActionListener(this::mostrarMenuRegistro);
 
         RecyclerView recycler = findViewById(R.id.recyclerFichas);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -141,6 +142,46 @@ public class PacienteDetalleActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.cerrar_ficha, (d, w) -> {
                     storage.cerrarFicha(pacienteId, activa.getNumero());
                     Toast.makeText(this, R.string.ficha_cerrada, Toast.LENGTH_SHORT).show();
+                    cargarFichas();
+                })
+                .setNegativeButton(R.string.cancelar, null)
+                .show();
+    }
+
+    private void mostrarMenuRegistro(com.pyrexlog.model.Registro registro) {
+        String[] opciones = {
+                getString(R.string.editar_registro),
+                getString(R.string.eliminar_registro)
+        };
+        new AlertDialog.Builder(this)
+                .setItems(opciones, (dialog, which) -> {
+                    if (which == 0) {
+                        abrirEditarRegistro(registro);
+                    } else {
+                        confirmarEliminarRegistro(registro);
+                    }
+                })
+                .show();
+    }
+
+    private void abrirEditarRegistro(com.pyrexlog.model.Registro registro) {
+        Intent intent = new Intent(this, AgregarRegistroActivity.class);
+        intent.putExtra(EXTRA_PACIENTE_ID, pacienteId);
+        intent.putExtra(AgregarRegistroActivity.EXTRA_EDITING, true);
+        intent.putExtra(AgregarRegistroActivity.EXTRA_FECHA_HORA_ORIGINAL, registro.getFechaHora());
+        intent.putExtra(AgregarRegistroActivity.EXTRA_NRO_FICHA, registro.getNroFicha());
+        intent.putExtra(AgregarRegistroActivity.EXTRA_TEMPERATURA, registro.getTemperatura());
+        intent.putExtra(AgregarRegistroActivity.EXTRA_DESCRIPCION, registro.getDescripcion());
+        startActivity(intent);
+    }
+
+    private void confirmarEliminarRegistro(com.pyrexlog.model.Registro registro) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.eliminar_registro)
+                .setMessage(R.string.confirmar_eliminar_registro)
+                .setPositiveButton(R.string.eliminar_registro, (d, w) -> {
+                    storage.eliminarRegistro(pacienteId, registro.getNroFicha(), registro.getFechaHora());
+                    Toast.makeText(this, R.string.registro_eliminado, Toast.LENGTH_SHORT).show();
                     cargarFichas();
                 })
                 .setNegativeButton(R.string.cancelar, null)

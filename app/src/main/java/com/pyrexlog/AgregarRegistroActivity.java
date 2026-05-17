@@ -23,6 +23,12 @@ import java.util.Locale;
 
 public class AgregarRegistroActivity extends AppCompatActivity {
 
+    public static final String EXTRA_EDITING            = "editing";
+    public static final String EXTRA_FECHA_HORA_ORIGINAL = "fecha_hora_original";
+    public static final String EXTRA_NRO_FICHA           = "nro_ficha";
+    public static final String EXTRA_TEMPERATURA         = "temperatura";
+    public static final String EXTRA_DESCRIPCION         = "descripcion";
+
     private static final SimpleDateFormat SDF_FECHA =
             new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
     private static final SimpleDateFormat SDF_HORA  =
@@ -30,6 +36,11 @@ public class AgregarRegistroActivity extends AppCompatActivity {
 
     private CsvStorage storage;
     private int pacienteId;
+
+    // Modo edición
+    private boolean modoEdicion;
+    private long    fechaHoraOriginal;
+    private int     nroFichaEdicion;
 
     // Calendario con la fecha/hora seleccionada (default: ahora)
     private final Calendar calendario = Calendar.getInstance();
@@ -54,11 +65,18 @@ public class AgregarRegistroActivity extends AppCompatActivity {
         pacienteId = getIntent().getIntExtra(PacienteDetalleActivity.EXTRA_PACIENTE_ID, -1);
         if (pacienteId == -1) { finish(); return; }
 
+        modoEdicion        = getIntent().getBooleanExtra(EXTRA_EDITING, false);
+        fechaHoraOriginal  = getIntent().getLongExtra(EXTRA_FECHA_HORA_ORIGINAL, 0);
+        nroFichaEdicion    = getIntent().getIntExtra(EXTRA_NRO_FICHA, -1);
+
         storage = new CsvStorage(this);
 
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
+        if (modoEdicion && getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(R.string.editar_registro);
+        }
 
         editFecha         = findViewById(R.id.editFecha);
         editHora          = findViewById(R.id.editHora);
@@ -69,7 +87,21 @@ public class AgregarRegistroActivity extends AppCompatActivity {
         radioFichaActual  = findViewById(R.id.radioFichaActual);
         radioNuevaFicha   = findViewById(R.id.radioNuevaFicha);
 
-        // Fecha y hora: mostrar "ahora" por defecto
+        if (modoEdicion) {
+            // Pre-cargar datos del registro a editar
+            calendario.setTimeInMillis(fechaHoraOriginal);
+            float temp = getIntent().getFloatExtra(EXTRA_TEMPERATURA, 0f);
+            String desc = getIntent().getStringExtra(EXTRA_DESCRIPCION);
+            editTemperatura.setText(String.format(Locale.getDefault(), "%.1f", temp));
+            editDescripcion.setText(desc != null ? desc : "");
+            // En edición no se cambia la ficha
+            radioGroupFicha.setVisibility(android.view.View.GONE);
+            findViewById(R.id.layoutFichaLabel).setVisibility(android.view.View.GONE);
+        } else {
+            configurarOpcionesFicha();
+        }
+
+        // Fecha y hora
         actualizarCamposFechaHora();
 
         // Abrir DatePickerDialog al tocar fecha
@@ -81,9 +113,6 @@ public class AgregarRegistroActivity extends AppCompatActivity {
         editHora.setOnClickListener(v -> mostrarTimePicker());
         ((com.google.android.material.textfield.TextInputLayout) findViewById(R.id.layoutHora))
                 .setEndIconOnClickListener(v -> mostrarTimePicker());
-
-        // Configurar opciones de ficha
-        configurarOpcionesFicha();
 
         findViewById(R.id.btnGuardar).setOnClickListener(v -> guardar());
     }
@@ -166,20 +195,24 @@ public class AgregarRegistroActivity extends AppCompatActivity {
 
         long fechaHora = calendario.getTimeInMillis();
 
-        // Determinar nro de ficha
-        int nroFicha;
-        boolean esNuevaFicha = radioNuevaFicha.isChecked();
-
-        if (esNuevaFicha) {
-            nroFicha = storage.crearNuevaFicha(pacienteId);
+        if (modoEdicion) {
+            Registro editado = new Registro(nroFichaEdicion, fechaHora, temperatura, descripcion);
+            storage.editarRegistro(pacienteId, nroFichaEdicion, fechaHoraOriginal, editado);
+            Toast.makeText(this, R.string.registro_actualizado, Toast.LENGTH_SHORT).show();
         } else {
-            nroFicha = fichaActiva.getNumero();
+            // Determinar nro de ficha
+            int nroFicha;
+            boolean esNuevaFicha = radioNuevaFicha.isChecked();
+            if (esNuevaFicha) {
+                nroFicha = storage.crearNuevaFicha(pacienteId);
+            } else {
+                nroFicha = fichaActiva.getNumero();
+            }
+            Registro registro = new Registro(nroFicha, fechaHora, temperatura, descripcion);
+            storage.agregarRegistro(pacienteId, registro);
+            Toast.makeText(this, R.string.registro_guardado, Toast.LENGTH_SHORT).show();
         }
 
-        Registro registro = new Registro(nroFicha, fechaHora, temperatura, descripcion);
-        storage.agregarRegistro(pacienteId, registro);
-
-        Toast.makeText(this, R.string.registro_guardado, Toast.LENGTH_SHORT).show();
         finish();
     }
 }

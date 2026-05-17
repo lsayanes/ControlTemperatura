@@ -52,12 +52,17 @@
     <string name="no_hay_ficha_activa">No active case file</string>
     <string name="crear">Create</string>
 
-    <!-- Add record -->
+    <!-- Add / edit record -->
     <string name="fecha">Date</string>
     <string name="hora">Time</string>
     <string name="ficha_actual_label">Case file %d (current)</string>
     <string name="nueva_ficha_label">New case file %d</string>
     <string name="registro_guardado">Record saved</string>
+    <string name="registro_actualizado">Record updated</string>
+    <string name="registro_eliminado">Record deleted</string>
+    <string name="editar_registro">Edit record</string>
+    <string name="eliminar_registro">Delete record</string>
+    <string name="confirmar_eliminar_registro">Delete this record? This action cannot be undone.</string>
     <string name="error_temp_obligatoria">Temperature is required</string>
     <string name="error_temp_invalida">Invalid temperature</string>
 

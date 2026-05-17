@@ -34,6 +34,16 @@ public class FichaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private static final SimpleDateFormat SDF =
             new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
 
+    public interface OnRegistroActionListener {
+        void onRegistroLongClick(Registro registro);
+    }
+
+    private OnRegistroActionListener registroListener;
+
+    public void setOnRegistroActionListener(OnRegistroActionListener listener) {
+        this.registroListener = listener;
+    }
+
     // Lista plana de items: puede ser Ficha o Registro
     private final List<Object> items = new ArrayList<>();
 
@@ -107,6 +117,14 @@ public class FichaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             else if (reg.getTemperatura() <= TEMP_NARANJA_MAX) color = COLOR_NARANJA;
             else                                               color = COLOR_ROJO;
             vh.indicador.setBackgroundColor(color);
+
+            vh.itemView.setOnLongClickListener(v -> {
+                if (registroListener != null) {
+                    registroListener.onRegistroLongClick(reg);
+                    return true;
+                }
+                return false;
+            });
         }
     }
 

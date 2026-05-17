@@ -52,12 +52,17 @@
     <string name="no_hay_ficha_activa">No hay ninguna ficha activa</string>
     <string name="crear">Crear</string>
 
-    <!-- Agregar registro -->
+    <!-- Agregar / editar registro -->
     <string name="fecha">Fecha</string>
     <string name="hora">Hora</string>
     <string name="ficha_actual_label">Ficha %d (actual)</string>
     <string name="nueva_ficha_label">Nueva ficha %d</string>
     <string name="registro_guardado">Registro guardado</string>
+    <string name="registro_actualizado">Registro actualizado</string>
+    <string name="registro_eliminado">Registro eliminado</string>
+    <string name="editar_registro">Editar registro</string>
+    <string name="eliminar_registro">Eliminar registro</string>
+    <string name="confirmar_eliminar_registro">¿Eliminar este registro? Esta acción no se puede deshacer.</string>
     <string name="error_temp_obligatoria">La temperatura es obligatoria</string>
     <string name="error_temp_invalida">Temperatura inválida</string>
 
