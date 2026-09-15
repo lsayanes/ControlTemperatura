@@ -75,7 +75,7 @@ Este `.aab` es el que se sube a Google Play Console.
 
 | Campo | Valor actual | Descripción |
 |---|---|---|
-| `versionCode` | 1 | Entero que incrementa en cada release (1, 2, 3…) |
-| `versionName` | "1.0" | String visible al usuario ("1.1", "2.0"…) |
+| `versionCode` | 3 | Entero que incrementa en cada release (1, 2, 3…) |
+| `versionName` | "2.1" | String visible al usuario ("1.1", "2.0"…) |
 
 Ambos se editan en `app/build.gradle.kts`.

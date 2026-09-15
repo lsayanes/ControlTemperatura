@@ -12,7 +12,9 @@ import com.pyrexlog.model.Paciente;
  * Programa y cancela alarmas de recordatorio usando AlarmManager.
  *
  * Cada paciente tiene su propia alarma identificada por su id.
- * Se usa setExactAndAllowWhileIdle para que funcione en modo Doze (ahorro de batería).
+ * Usa una alarma exacta cuando el sistema lo permite y una alarma aproximada como
+ * alternativa, evitando fallos en Android 12 o superior si el usuario no concedió
+ * el acceso especial a alarmas exactas.
  */
 public class AlarmScheduler {
 
@@ -29,10 +31,18 @@ public class AlarmScheduler {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         PendingIntent pi = buildPendingIntent(context, paciente.getId());
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, disparoMs, pi);
-        } else {
-            am.setExact(AlarmManager.RTC_WAKEUP, disparoMs, pi);
+        boolean puedeProgramarExacta = Build.VERSION.SDK_INT < Build.VERSION_CODES.S
+                || am.canScheduleExactAlarms();
+
+        try {
+            if (puedeProgramarExacta) {
+                am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, disparoMs, pi);
+            } else {
+                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, disparoMs, pi);
+            }
+        } catch (SecurityException ignored) {
+            // El permiso puede cambiar entre la comprobación y la programación.
+            am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, disparoMs, pi);
         }
     }
 

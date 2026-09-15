@@ -21,7 +21,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_myplaces"
-            android:tint="?attr/colorPrimary"
+            app:tint="?attr/colorPrimary"
             android:contentDescription="@string/paciente" />
 
         <LinearLayout
@@ -52,7 +52,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@android:drawable/ic_media_play"
-            android:tint="?attr/colorOnSurfaceVariant"
+            app:tint="?attr/colorOnSurfaceVariant"
             android:contentDescription="@string/ver_detalle" />
 
     </LinearLayout>

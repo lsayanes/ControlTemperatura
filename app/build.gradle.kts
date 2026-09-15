@@ -12,14 +12,14 @@ val keystoreProperties = Properties().apply {
 
 android {
     namespace = "com.pyrexlog"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.pyrexlog"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 2
-        versionName = "2.0"
+        targetSdk = 36
+        versionCode = 3
+        versionName = "2.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
